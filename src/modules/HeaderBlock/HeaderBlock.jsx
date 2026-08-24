@@ -1,0 +1,91 @@
+import './HeaderBlock.css';
+import headerImage from '../../assets/Askar-Azem-Header-Block-Image.png';
+
+const HeaderBlock = () => {
+    return (
+        <section className="header-block">
+            <div className="header-block__content">
+
+                <p className="header-block__eyebrow">
+                    ПРИГЛАШАЕМ ВАС НА
+                </p>
+
+                <h1 className="header-block__title">
+                    Свадьбу
+                </h1>
+
+                <div className="header-block__divider">
+                    <span />
+                    <span className="header-block__heart">♡</span>
+                    <span />
+                </div>
+
+                <p className="header-block__intro">
+                    Скоро станем семьёй,
+                    <br />
+                    и хотим разделить этот важный день
+                    <br />
+                    с теми, кто нам дорог.
+                </p>
+
+                <div className="header-block__photo">
+                    <img
+                        src={headerImage}
+                        alt="Аскар и Азем"
+                    />
+                </div>
+
+                <p className="header-block__wish">
+                    Будем рады видеть вас
+                    <br />
+                    на нашем празднике!
+                </p>
+
+                <div className="header-block__small-heart">
+                    ♡
+                </div>
+
+                <div className="header-block__date-section">
+
+                    <p className="header-block__save-date">
+                        СОХРАНИТЕ ДАТУ
+                    </p>
+
+                    <div className="header-block__date">
+                        26.09.2026
+                    </div>
+
+                    <div className="header-block__time">
+                        в 16:00
+                    </div>
+
+                    <div className="header-block__date-divider">
+                        <span />
+                        <span className="header-block__heart">
+                            ♡
+                        </span>
+                        <span />
+                    </div>
+
+                </div>
+
+                <p className="header-block__bottom-text">
+                    БУДЕТ МНОГО ЛЮБВИ, УЛЫБОК,
+                    <br />
+                    ТЁПЛЫХ СЛОВ И СЧАСТЛИВЫХ МОМЕНТОВ.
+                </p>
+
+                <p className="header-block__final">
+                    Ждём вас!
+                </p>
+
+                <div className="header-block__final-heart">
+                    ♡
+                </div>
+
+            </div>
+        </section>
+    );
+};
+
+export default HeaderBlock;
