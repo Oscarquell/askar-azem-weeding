@@ -1,5 +1,4 @@
 import './OpeningBlock.css';
-import headerImage from '../../assets/Askar-Azem-Header-Block-Image.png';
 
 const OpeningBlock = ({ onOpen }) => {
     return (
