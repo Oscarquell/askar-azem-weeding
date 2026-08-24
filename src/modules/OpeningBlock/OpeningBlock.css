@@ -1,0 +1,283 @@
+.opening-block {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: 100dvh;
+
+    background: #faf9f7;
+    color: #111;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    /* Не передавать скролл основной странице */
+    overscroll-behavior: contain;
+    overscroll-behavior-y: contain;
+}
+
+.opening-block__content {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100%;
+
+    margin: 0 auto;
+    padding: 55px 28px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================
+   TOP HEART
+   ========================= */
+
+.opening-block__top-heart {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #111;
+}
+
+
+/* =========================
+   EYEBROW
+   ========================= */
+
+.opening-block__eyebrow {
+    margin: 65px 0 0;
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0.30em;
+    line-height: 1.4;
+
+    color: #222;
+}
+
+
+/* =========================
+   NAMES
+   ========================= */
+
+.opening-block__names {
+    margin: 22px 0 0;
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(48px, 13vw, 68px);
+    font-weight: 500;
+
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+
+    color: #111;
+}
+
+
+/* =========================
+   DIVIDER
+   ========================= */
+
+.opening-block__divider {
+    width: 78%;
+    max-width: 320px;
+
+    margin: 30px 0 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.opening-block__divider span:first-child,
+.opening-block__divider span:last-child {
+    flex: 1;
+
+    height: 1px;
+
+    background: #b8b6b3;
+}
+
+.opening-block__heart {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #111;
+}
+
+
+/* =========================
+   INTRO
+   ========================= */
+
+.opening-block__intro {
+    margin: 42px 0 0;
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    letter-spacing: 0.22em;
+    line-height: 1.8;
+
+    color: #333;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.opening-block__button {
+    width: min(100%, 330px);
+
+    margin-top: 36px;
+    padding: 17px 20px;
+
+    border: 1px solid #222;
+
+    background: transparent;
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0.25em;
+
+    color: #111;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+            background-color 0.25s ease,
+            color 0.25s ease;
+}
+
+.opening-block__button span {
+    margin-left: 12px;
+
+    font-size: 18px;
+    letter-spacing: 0;
+}
+
+.opening-block__button:hover {
+    background: #111;
+    color: #faf9f7;
+}
+
+
+/* =========================
+   PHOTO
+   ========================= */
+
+.opening-block__photo {
+    width: min(100%, 390px);
+
+    margin-top: 18px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.opening-block__photo img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    filter: grayscale(100%);
+}
+
+
+/*
+   Плавное растворение фотографии
+   в цвет фона снизу.
+*/
+
+.opening-block__photo::after {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 35%;
+
+    background: linear-gradient(
+            to bottom,
+            rgba(250, 249, 247, 0),
+            #faf9f7
+    );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 360px) {
+
+    .opening-block__content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .opening-block__eyebrow {
+        margin-top: 50px;
+
+        font-size: 12px;
+        letter-spacing: 0.24em;
+    }
+
+    .opening-block__names {
+        font-size: 45px;
+    }
+
+    .opening-block__intro {
+        margin-top: 35px;
+
+        font-size: 14px;
+        letter-spacing: 0.16em;
+    }
+
+    .opening-block__button {
+        margin-top: 30px;
+
+        width: 100%;
+
+        padding-left: 12px;
+        padding-right: 12px;
+
+        font-size: 12px;
+        letter-spacing: 0.20em;
+    }
+
+    .opening-block__photo {
+        width: 110%;
+
+        margin-top: 12px;
+    }
+}

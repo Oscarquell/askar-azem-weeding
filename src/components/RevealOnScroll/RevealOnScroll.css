@@ -1,0 +1,33 @@
+.reveal-on-scroll {
+    opacity: 0;
+
+    transform: translateY(22px);
+
+    transition:
+            opacity 0.9s ease,
+            transform 0.9s ease;
+
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll--visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/*
+   Если пользователь отключил
+   анимацию в настройках устройства
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+
+        transition: none;
+    }
+}

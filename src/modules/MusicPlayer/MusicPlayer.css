@@ -1,0 +1,86 @@
+.music-player {
+    position: fixed;
+
+    top: max(18px, env(safe-area-inset-top));
+    right: 18px;
+
+    z-index: 1100;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #b8b6b3;
+    border-radius: 50%;
+
+    background: rgba(250, 249, 247, 0.9);
+
+    color: #111;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    backdrop-filter: blur(4px);
+
+    transition:
+            background-color 0.25s ease,
+            border-color 0.25s ease,
+            transform 0.2s ease;
+}
+
+.music-player:active {
+    transform: scale(0.94);
+}
+
+.music-player__icon {
+    display: block;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+/* Музыка играет */
+
+.music-player--playing .music-player__icon {
+    animation: music-player-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes music-player-pulse {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 360px) {
+
+    .music-player {
+        top: max(14px, env(safe-area-inset-top));
+        right: 14px;
+
+        width: 38px;
+        height: 38px;
+    }
+
+    .music-player__icon {
+        font-size: 19px;
+    }
+}
