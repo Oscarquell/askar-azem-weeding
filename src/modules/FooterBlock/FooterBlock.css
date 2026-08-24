@@ -1,0 +1,151 @@
+.footer-block {
+    width: 100%;
+
+    background: #faf9f7;
+    color: #111;
+
+    overflow: hidden;
+}
+
+.footer-block__content {
+    width: 100%;
+    max-width: 480px;
+
+    margin: 0 auto;
+    padding: 20px 28px 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================
+   DIVIDER
+   ========================= */
+
+.footer-block__divider {
+    width: 78%;
+    max-width: 320px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.footer-block__divider span:first-child,
+.footer-block__divider span:last-child {
+    flex: 1;
+
+    height: 1px;
+
+    background: #b8b6b3;
+}
+
+.footer-block__heart {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #111;
+}
+
+
+/* =========================
+   SIGNATURE
+   ========================= */
+
+.footer-block__signature {
+    margin: 30px 0 0;
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0.28em;
+    line-height: 1.8;
+
+    color: #333;
+}
+
+
+/* =========================
+   FINAL
+   ========================= */
+
+.footer-block__final {
+    margin: 24px 0 0;
+
+    font-family: 'Marck Script', cursive;
+    font-size: 40px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #171717;
+}
+
+
+/* =========================
+   HEART
+   ========================= */
+
+.footer-block__heart-bottom {
+    margin-top: 10px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+
+    line-height: 1;
+
+    color: #111;
+}
+
+
+/* =========================
+   DATE
+   ========================= */
+
+.footer-block__date {
+    margin: 24px 0 0;
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    letter-spacing: 0.18em;
+
+    color: #555;
+}
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 360px) {
+
+    .footer-block__content {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 35px;
+    }
+
+    .footer-block__signature {
+        font-size: 12px;
+        letter-spacing: 0.24em;
+    }
+
+    .footer-block__final {
+        font-size: 36px;
+    }
+
+    .footer-block__date {
+        font-size: 13px;
+    }
+}
