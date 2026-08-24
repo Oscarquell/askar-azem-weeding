@@ -1,5 +1,4 @@
-import React, { useRef, useState } from 'react';
-import HeaderBlock from "../../modules/HeaderBlock/HeaderBlock";
+import React, { useEffect, useRef, useState } from 'react';import HeaderBlock from "../../modules/HeaderBlock/HeaderBlock";
 import CountdownBlock from "../../modules/CountdownBlock/CountdownBlock";
 import RSVPBlock from "../../modules/RSVPBlock/RSVPBlock";
 import LocationBlock from "../../modules/LocationBlock/LocationBlock";
@@ -19,6 +18,33 @@ const WeedingPage = () => {
     const [isOpened, setIsOpened] = useState(
         () => sessionStorage.getItem('wedding-opened') === 'true'
     );
+
+    useEffect(() => {
+        if (!isOpened) {
+            document.body.style.position = 'fixed';
+            document.body.style.top = '0';
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+            document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.width = '';
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.width = '';
+            document.body.style.overflow = '';
+        };
+    }, [isOpened]);
 
     const handleOpenInvitation = async () => {
         sessionStorage.setItem('wedding-opened', 'true');
@@ -51,12 +77,22 @@ const WeedingPage = () => {
                     audio.volume = currentVolume;
                 }, interval);
 
+                setIsPlaying(true);
+
             } catch (error) {
                 console.error('Музыка не запустилась:', error);
             }
         }
 
         setIsOpened(true);
+
+        requestAnimationFrame(() => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'instant',
+            });
+        });
     };
 
     const handleToggleMusic = async () => {
