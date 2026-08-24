@@ -37,9 +37,9 @@ const LocationBlock = () => {
                     Бишкек
                 </p>
 
-                <p className="location-block__time">
-                    Начало в 16:00
-                </p>
+                {/*<p className="location-block__time">*/}
+                {/*    Начало в 16:00*/}
+                {/*</p>*/}
 
                 <a
                     className="location-block__button"
