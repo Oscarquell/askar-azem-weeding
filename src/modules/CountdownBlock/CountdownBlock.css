@@ -87,12 +87,12 @@
     color: #999;
 }
 
-.countdown-block__divider {
-    width: 62%;
-    max-width: 260px;
+/*.countdown-block__divider {*/
+/*    width: 62%;*/
+/*    max-width: 260px;*/
 
-    margin-top: 32px;
-}
+/*    margin-top: 32px;*/
+/*}*/
 
 .countdown-block__divider span {
     display: block;

@@ -140,9 +140,9 @@ const WeedingPage = () => {
                 <CountdownBlock />
             </RevealOnScroll>
 
-            <RevealOnScroll>
-                <RSVPBlock />
-            </RevealOnScroll>
+            {/*<RevealOnScroll>*/}
+            {/*    <RSVPBlock />*/}
+            {/*</RevealOnScroll>*/}
 
             <RevealOnScroll>
                 <LocationBlock />
