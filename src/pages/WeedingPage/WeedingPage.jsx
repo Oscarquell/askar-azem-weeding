@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';import HeaderBlock from "../../modules/HeaderBlock/HeaderBlock";
 import CountdownBlock from "../../modules/CountdownBlock/CountdownBlock";
-import RSVPBlock from "../../modules/RSVPBlock/RSVPBlock";
 import LocationBlock from "../../modules/LocationBlock/LocationBlock";
 import FooterBlock from "../../modules/FooterBlock/FooterBlock";
 import OpeningBlock from "../../modules/OpeningBlock/OpeningBlock";
