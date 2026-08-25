@@ -1,5 +1,5 @@
 import './HeaderBlock.css';
-import headerImage from '../../assets/Askar-Azem-Header-Block-Image.png';
+import headerImage from '../../assets/Askar-Azem-Header-Block-Image.jpg';
 
 const HeaderBlock = () => {
     return (
