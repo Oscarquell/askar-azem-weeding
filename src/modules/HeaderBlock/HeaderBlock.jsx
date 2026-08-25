@@ -32,16 +32,36 @@ const HeaderBlock = () => {
                         alt="Аскар и Азем"
                     />
                 </div>
-
-                <p className="header-block__wish">
-                    Будем рады видеть вас
-                    <br />
-                    на нашем празднике!
-                </p>
-
-                <div className="header-block__small-heart">
-                    ♡
+                <div className="header-block__date-divider">
+                    <span />
+                    <span className="header-block__heart">
+                            ♡
+                        </span>
+                    <span />
                 </div>
+                {/*<p className="header-block__wish">*/}
+                {/*    С нетерпением ждём встречи*/}
+                {/*    <br />*/}
+                {/*    с Вами в этот особенный день!*/}
+                {/*</p>*/}
+
+                {/*<div className="header-block__small-heart">*/}
+                {/*    ♡*/}
+                {/*</div>*/}
+
+                <p className="header-block__bottom-text">
+                    УРМАТТУУ КУДАЛАР,
+                    <br />
+                    НАМ ОСОБЕННО ПРИЯТНО РАЗДЕЛИТЬ
+                    <br />
+                    С ВАМИ ЭТОТ ВАЖНЫЙ И СЧАСТЛИВЫЙ ДЕНЬ.
+                    <br />
+                    ОТ ВСЕЙ ДУШИ ПРИГЛАШАЕМ ВАС
+                    <br />
+                    НА СВАДЬБУ НАШИХ ДЕТЕЙ,
+                    <br />
+                    ЧТОБЫ ВМЕСТЕ РАЗДЕЛИТЬ ИХ РАДОСТЬ.
+                </p>
 
                 <div className="header-block__date-section">
 
@@ -67,27 +87,13 @@ const HeaderBlock = () => {
 
                 </div>
 
-                <p className="header-block__bottom-text">
-                    УРМАТТУУ КУДАЛАР,
-                    <br />
-                    НАМ ОСОБЕННО ПРИЯТНО РАЗДЕЛИТЬ
-                    <br />
-                    С ВАМИ ЭТОТ ВАЖНЫЙ И СЧАСТЛИВЫЙ ДЕНЬ.
-                    <br />
-                    ОТ ВСЕЙ ДУШИ ПРИГЛАШАЕМ ВАС
-                    <br />
-                    НА СВАДЬБУ НАШИХ ДЕТЕЙ,
-                    <br />
-                    ЧТОБЫ ВМЕСТЕ РАЗДЕЛИТЬ ИХ РАДОСТЬ.
-                </p>
+                {/*<p className="header-block__final">*/}
+                {/*    Ждём вас!*/}
+                {/*</p>*/}
 
-                <p className="header-block__final">
-                    Ждём вас!
-                </p>
-
-                <div className="header-block__final-heart">
-                    ♡
-                </div>
+                {/*<div className="header-block__final-heart">*/}
+                {/*    ♡*/}
+                {/*</div>*/}
 
             </div>
         </section>

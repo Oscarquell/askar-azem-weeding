@@ -14,9 +14,9 @@ const FooterBlock = () => {
                 </div>
 
                 <p className="footer-block__signature">
-                    С ЛЮБОВЬЮ,
+                    С УВАЖЕНИЕМ,
                     <br />
-                    АСКАР & АЗЕМ
+                    ТИМУР & АИДА
                 </p>
 
                 <p className="footer-block__final">
