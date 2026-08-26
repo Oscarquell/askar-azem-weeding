@@ -32,7 +32,7 @@ const LocationBlock = () => {
                 </div>
 
                 <p className="location-block__address">
-                    Проспект Жибек-Жолу, 402
+                    Проспект Жибек-Жолу, 728
                     <br />
                     Бишкек
                 </p>
