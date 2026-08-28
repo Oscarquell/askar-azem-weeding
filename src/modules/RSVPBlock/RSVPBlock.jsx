@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 import './RSVPBlock.css';
+import api from "../../services/API/api";
 
 const initialForm = {
     name: '',
@@ -37,12 +37,13 @@ const RSVPBlock = () => {
         };
 
         try {
-            const response = await axios.post(
-                'http://178.105.184.173:8081/api/guests',
+            const response = await api.post(
+                '/guests',
                 data
             );
+
             console.log('Wedding RSVP успешно отправлен:', response.data);
-            // Очищаем форму после успешной отправки
+
             setForm(initialForm);
 
         } catch (error) {
