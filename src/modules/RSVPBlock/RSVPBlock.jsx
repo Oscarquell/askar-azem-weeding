@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import axios from 'axios';
 import './RSVPBlock.css';
 
+const initialForm = {
+    name: '',
+    wishes: '',
+    attendance: null,
+};
+
 const RSVPBlock = () => {
-    const [form, setForm] = useState({
-        name: '',
-        wishes: '',
-        attendance: null,
-    });
+    const [form, setForm] = useState(initialForm);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -24,7 +27,7 @@ const RSVPBlock = () => {
         }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         const data = {
@@ -33,7 +36,18 @@ const RSVPBlock = () => {
             attendance: form.attendance === 'true',
         };
 
-        console.log('Wedding RSVP:', data);
+        try {
+            const response = await axios.post(
+                'http://178.105.184.173:8081/api/guests',
+                data
+            );
+            console.log('Wedding RSVP успешно отправлен:', response.data);
+            // Очищаем форму после успешной отправки
+            setForm(initialForm);
+
+        } catch (error) {
+            console.error('Ошибка при отправке RSVP:', error);
+        }
     };
 
     return (
@@ -65,8 +79,6 @@ const RSVPBlock = () => {
                     onSubmit={handleSubmit}
                 >
 
-                    {/* NAME */}
-
                     <div className="rsvp-block__field">
                         <label htmlFor="name">
                             Ваше имя
@@ -83,8 +95,6 @@ const RSVPBlock = () => {
                         />
                     </div>
 
-                    {/* WISHES */}
-
                     <div className="rsvp-block__field">
                         <label htmlFor="wishes">
                             Пожелания
@@ -99,8 +109,6 @@ const RSVPBlock = () => {
                             rows={3}
                         />
                     </div>
-
-                    {/* ATTENDANCE */}
 
                     <div className="rsvp-block__attendance">
 

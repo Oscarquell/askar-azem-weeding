@@ -145,20 +145,21 @@
    ========================= */
 
 .opening-block__button {
-    width: min(100%, 330px);
+    width: min(100%, 340px);
 
     margin-top: 36px;
-    padding: 17px 20px;
+    padding: 19px 22px;
 
-    border: 1px solid #222;
+    border: 1.5px solid #111;
 
-    background: transparent;
+    background: #f3f1ee;
 
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
 
-    letter-spacing: 0.25em;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
 
     color: #111;
 
@@ -166,21 +167,77 @@
 
     -webkit-tap-highlight-color: transparent;
 
+    /*
+       Очень лёгкое движение вверх-вниз.
+       Не выглядит навязчиво,
+       но привлекает внимание.
+    */
+    animation: opening-button-float 2.8s ease-in-out infinite;
+
     transition:
             background-color 0.25s ease,
-            color 0.25s ease;
+            color 0.25s ease,
+            transform 0.15s ease;
 }
+
+
+/* =========================
+   BUTTON HEART
+   ========================= */
 
 .opening-block__button span {
+    display: inline-block;
+
     margin-left: 12px;
 
-    font-size: 18px;
+    font-size: 21px;
+    font-weight: 400;
+
     letter-spacing: 0;
+
+    transition: transform 0.25s ease;
 }
+
+
+/* =========================
+   BUTTON HOVER
+   ========================= */
 
 .opening-block__button:hover {
     background: #111;
     color: #faf9f7;
+
+    animation-play-state: paused;
+}
+
+.opening-block__button:hover span {
+    transform: scale(1.12);
+}
+
+
+/* =========================
+   BUTTON PRESS
+   ========================= */
+
+.opening-block__button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================
+   FLOAT ANIMATION
+   ========================= */
+
+@keyframes opening-button-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
 }
 
 
@@ -268,16 +325,30 @@
 
         width: 100%;
 
-        padding-left: 12px;
-        padding-right: 12px;
+        padding: 19px 12px;
 
-        font-size: 12px;
-        letter-spacing: 0.20em;
+        font-size: 14px;
+        font-weight: 700;
+
+        letter-spacing: 0.12em;
     }
 
     .opening-block__photo {
         width: 110%;
 
         margin-top: 12px;
+    }
+}
+
+
+/* =========================
+   REDUCE MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .opening-block__button {
+        animation: none;
+        transition: none;
     }
 }
