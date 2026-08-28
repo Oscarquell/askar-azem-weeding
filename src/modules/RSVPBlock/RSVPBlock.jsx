@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './RSVPBlock.css';
 import api from "../../services/API/api";
 
@@ -10,6 +10,32 @@ const initialForm = {
 
 const RSVPBlock = () => {
     const [form, setForm] = useState(initialForm);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [isSuccessClosing, setIsSuccessClosing] = useState(false);
+
+
+    useEffect(() => {
+        if (!successMessage) {
+            return;
+        }
+
+        setIsSuccessClosing(false);
+
+        const closeTimer = setTimeout(() => {
+            setIsSuccessClosing(true);
+        }, 6500);
+
+        const removeTimer = setTimeout(() => {
+            setSuccessMessage('');
+            setIsSuccessClosing(false);
+        }, 7000);
+
+        return () => {
+            clearTimeout(closeTimer);
+            clearTimeout(removeTimer);
+        };
+    }, [successMessage]);
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -20,12 +46,14 @@ const RSVPBlock = () => {
         }));
     };
 
+
     const handleAttendanceChange = (value) => {
         setForm((prev) => ({
             ...prev,
             attendance: value,
         }));
     };
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -42,14 +70,19 @@ const RSVPBlock = () => {
                 data
             );
 
-            console.log('Wedding RSVP успешно отправлен:', response.data);
+            console.log(response.data.message);
 
+            setSuccessMessage(response.data.message);
             setForm(initialForm);
 
         } catch (error) {
-            console.error('Ошибка при отправке RSVP:', error);
+            console.error(
+                'Ошибка при отправке RSVP:',
+                error
+            );
         }
     };
+
 
     return (
         <section className="rsvp-block">
@@ -61,11 +94,17 @@ const RSVPBlock = () => {
                     присутствие
                 </h2>
 
+
                 <div className="rsvp-block__divider">
                     <span />
-                    <span className="rsvp-block__heart">♡</span>
+
+                    <span className="rsvp-block__heart">
+                        ♡
+                    </span>
+
                     <span />
                 </div>
+
 
                 <p className="rsvp-block__description">
                     Пожалуйста, заполните небольшую форму,
@@ -75,12 +114,16 @@ const RSVPBlock = () => {
                     на нашем празднике.
                 </p>
 
+
                 <form
                     className="rsvp-block__form"
                     onSubmit={handleSubmit}
                 >
 
+                    {/* NAME */}
+
                     <div className="rsvp-block__field">
+
                         <label htmlFor="name">
                             Ваше имя
                         </label>
@@ -94,9 +137,14 @@ const RSVPBlock = () => {
                             placeholder="Введите ваше имя"
                             required
                         />
+
                     </div>
 
+
+                    {/* WISHES */}
+
                     <div className="rsvp-block__field">
+
                         <label htmlFor="wishes">
                             Пожелания
                         </label>
@@ -109,7 +157,11 @@ const RSVPBlock = () => {
                             placeholder="Напишите несколько слов..."
                             rows={3}
                         />
+
                     </div>
+
+
+                    {/* ATTENDANCE */}
 
                     <div className="rsvp-block__attendance">
 
@@ -117,14 +169,18 @@ const RSVPBlock = () => {
                             Вы будете с нами?
                         </p>
 
+
                         <div className="rsvp-block__options">
 
                             <label className="rsvp-block__option">
+
                                 <input
                                     type="radio"
                                     name="attendance"
                                     value="true"
-                                    checked={form.attendance === 'true'}
+                                    checked={
+                                        form.attendance === 'true'
+                                    }
                                     onChange={() =>
                                         handleAttendanceChange('true')
                                     }
@@ -136,14 +192,19 @@ const RSVPBlock = () => {
                                 <span>
                                     Да, обязательно приду
                                 </span>
+
                             </label>
 
+
                             <label className="rsvp-block__option">
+
                                 <input
                                     type="radio"
                                     name="attendance"
                                     value="false"
-                                    checked={form.attendance === 'false'}
+                                    checked={
+                                        form.attendance === 'false'
+                                    }
                                     onChange={() =>
                                         handleAttendanceChange('false')
                                     }
@@ -154,10 +215,15 @@ const RSVPBlock = () => {
                                 <span>
                                     К сожалению, не смогу
                                 </span>
+
                             </label>
 
                         </div>
+
                     </div>
+
+
+                    {/* SUBMIT */}
 
                     <button
                         type="submit"
@@ -167,6 +233,31 @@ const RSVPBlock = () => {
                     </button>
 
                 </form>
+
+
+                {/* SUCCESS MESSAGE */}
+
+                {successMessage && (
+
+                    <div
+                        className={`rsvp-block__success ${
+                            isSuccessClosing
+                                ? 'rsvp-block__success--closing'
+                                : ''
+                        }`}
+                    >
+
+                        <span className="rsvp-block__success-heart">
+                            ♡
+                        </span>
+
+                        <p>
+                            {successMessage}
+                        </p>
+
+                    </div>
+
+                )}
 
             </div>
         </section>
